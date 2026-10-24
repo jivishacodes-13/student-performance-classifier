@@ -14,13 +14,26 @@ st.set_page_config(
 
 # Title
 st.title("🎓 Student Performance Classifier")
-st.write(
-    "Predict student performance using academic, behavioral "
-    "and student-related factors."
+
+st.markdown(
+    """
+    ### Understand academic performance through machine learning
+
+    Explore how study habits, previous academic challenges, and
+    student-related factors relate to predicted performance.
+
+    This application uses a machine learning model to estimate
+    one of three categories: **Low, Average, or High**.
+    """
+)
+
+st.info(
+    "This is an experimental prediction tool, not a definitive "
+    "assessment of a student's abilities. Predictions may be "
+    "incorrect and should not replace individual academic guidance."
 )
 
 st.divider()
-
 # Input section
 st.header("📋 Student Information")
 
@@ -128,8 +141,21 @@ if st.button("🔮 Predict Performance", use_container_width=True):
         st.error("### 🔴 LOW PERFORMANCE")
 
     st.metric(
-        "Model Confidence",
-        f"{confidence * 100:.2f}%"
+    "Estimated Model Confidence",
+    f"{confidence * 100:.2f}%"
+    )
+
+    st.caption(
+        "This score represents the model's estimated probability "
+        "for the predicted category. It is not a guarantee of "
+        "correctness, and the probabilities have not necessarily "
+        "been calibrated."
+    )
+
+    st.info(
+        "This tool provides an experimental academic performance "
+        "estimate, not a definitive assessment of a student. "
+        "Use the result alongside other relevant information."
     )
 
     # -------------------------------
